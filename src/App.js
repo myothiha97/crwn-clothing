@@ -1,4 +1,5 @@
 import "./App.css";
+import { connect } from "react-redux";
 import React, { Component } from "react";
 import HomePage from "./pages/homepage/homepage.component";
 import { Route, Switch } from "react-router-dom";
@@ -6,12 +7,9 @@ import ShopPage from "./pages/shop/shop.component";
 import Header from "./components/header/header.component";
 import SignInAndSignUpPage from "./pages/sign-in-and-sign-up/sign-in-and-sign-up.component";
 import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
+import { setCurrentUser } from "./redux/user/user.actions";
 
 class App extends Component {
-  state = {
-    currentUser: null,
-  };
-
   unsubscribeFromAuth = null;
 
   componentDidMount() {
@@ -20,27 +18,13 @@ class App extends Component {
       if (user) {
         const userRef = createUserProfileDocument(user);
         (await userRef).onSnapshot((snapShot) => {
-          this.setState(
-            {
-              currentUser: snapShot.id,
-              ...snapShot.data(),
-            },
-            () => {
-              console.log(this.state);
-            }
-          );
+          this.props.setCurrentUser({
+            id: snapShot.id,
+            ...snapShot.data(),
+          });
         });
-
-        // await userRef.onSnapshot((snapShot) => {
-        //   this.setState({
-        //     currentUser: {
-        //       id: snapShot.id,
-        //       ...snapShot.data(),
-        //     },
-        //   });
-        // });
       } else {
-        this.setState({ currentUser: null });
+        this.props.setCurrentUser(user);
       }
     });
   }
@@ -51,7 +35,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Header currentUser={this.state.currentUser}></Header>
+        <Header></Header>
         <Switch>
           <Route exact path="/" component={HomePage}></Route>
           <Route exact path="/shop" component={ShopPage}></Route>
@@ -62,19 +46,8 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapDispatchToProps = (dispatch) => ({
+  setCurrentUser: (user) => dispatch(setCurrentUser(user)),
+});
 
-// function App() {
-//   return (
-//     <div>
-//       <Header></Header>
-//       <Switch>
-//         <Route exact path="/" component={HomePage}></Route>
-//         <Route exact path="/shop" component={ShopPage}></Route>
-//         <Route exact path="/signin" component={SignInAndSignUpPage}></Route>
-//       </Switch>
-//     </div>
-//   );
-// }
-
-// export default App;
+export default connect(null, mapDispatchToProps)(App);
