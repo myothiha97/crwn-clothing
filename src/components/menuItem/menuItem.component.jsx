@@ -1,7 +1,8 @@
 import React from "react";
 import "./menuItem.styles.scss";
+import { Link, withRouter } from "react-router-dom";
 
-export default function MenuItem({ title, imageUrl, size }) {
+function MenuItem({ size, imageUrl, title, linkUrl, history }) {
   return (
     <div className={`${size} menu-item`}>
       <div
@@ -10,10 +11,12 @@ export default function MenuItem({ title, imageUrl, size }) {
           backgroundImage: `url(${imageUrl})`,
         }}
       ></div>
-      <div className="content">
+      <div className="content" onClick={() => history.push(`/${linkUrl}`)}>
         <h1 className="title">{title.toUpperCase()}</h1>
         <span className="subtitle">SHOP NOW</span>
       </div>
     </div>
   );
 }
+
+export default withRouter(MenuItem);
