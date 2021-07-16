@@ -28,4 +28,18 @@
     margin-left: auto;
     font-size: 36px;
   }
+
+  .test-warning {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 30px;
+    font-size: 24px;
+    color: red;
+  }
+
+  .stripe-position {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
 }
