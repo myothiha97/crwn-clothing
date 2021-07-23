@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import CollectionItem from "../../components/collection-item/collection-item.component";
 
 import "./collection.styles.scss";
+import CollectionsContext from "../../contexts/collections/collecions.context";
 
-import { selectCollection } from "../../redux/shop/shop.selector";
-import { connect } from "react-redux";
+// import { selectCollection } from "../../redux/shop/shop.selector";
+// import { connect } from "react-redux";
 
-const CollectionPage = ({ match, collection }) => {
+const CollectionPage = ({ match }) => {
+  const collections = useContext(CollectionsContext);
+  const collection = collections[match.params.collectionId];
   const { title, items } = collection;
   return (
     <div className="collection-page">
@@ -21,13 +24,13 @@ const CollectionPage = ({ match, collection }) => {
   );
 };
 
-const mapStateToProps = (state, ownProps) => {
-  console.log(ownProps);
-  return {
-    collection: selectCollection(
-      ownProps.match && ownProps.match.params.collectionId
-    )(state),
-  };
-};
+// const mapStateToProps = (state, ownProps) => {
+//   console.log(ownProps);
+//   return {
+//     collection: selectCollection(
+//       ownProps.match && ownProps.match.params.collectionId
+//     )(state),
+//   };
+// };
 
-export default connect(mapStateToProps)(CollectionPage);
+export default CollectionPage;
