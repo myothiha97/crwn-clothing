@@ -1,4 +1,4 @@
-import "./App.css";
+import "./App.scss";
 import { connect } from "react-redux";
 import React, { Component } from "react";
 import HomePage from "./pages/homepage/homepage.component";
