@@ -6,20 +6,45 @@
   align-items: center;
   position: relative;
 
+  @media screen and (max-width: 1136px) {
+    height: auto;
+  }
+
+  @media screen and (max-width: 910px) {
+    min-width: 40vw;
+  }
+
+  @media screen and (max-width: 800px) {
+    width: 30vw;
+  }
+
+  @media screen and (max-width: 400px) {
+    min-width: 60vw;
+  }
+
+  // @media screen and (max-width: 370px) {
+  //   width: 60vw;
+  // }
+
   .image {
     width: 100%;
     height: 95%;
     background-size: cover;
     background-position: center;
     margin-bottom: 5px;
+
+    @media screen and (max-width: 1136px) {
+      height: 340px;
+    }
   }
 
   .custom-button {
-    width: 80%;
+    width: 60%;
     opacity: 0.7;
     position: absolute;
     top: 255px;
     display: none;
+    font-size: 14px;
   }
 
   &:hover {
@@ -40,9 +65,21 @@
     justify-content: space-between;
     font-size: 18px;
 
+    @media screen and (max-width: 1136px) {
+      height: 75px;
+      flex-direction: column;
+      align-items: center;
+    }
+
     .name {
       width: 90%;
       margin-bottom: 15px;
+
+      @media screen and (max-width: 1136px) {
+        width: auto;
+        text-align: center;
+        margin-bottom: 0;
+      }
     }
 
     .price {

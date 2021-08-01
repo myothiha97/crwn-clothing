@@ -12,6 +12,19 @@
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 10px;
 
+    @media screen and (max-width: 800px) {
+      padding: 30px;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @media screen and (max-width: 540px) {
+      padding: 10px;
+    }
+
     & .collection-item {
       margin-bottom: 30px;
     }

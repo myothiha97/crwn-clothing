@@ -4,6 +4,17 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 25px;
+  align-items: center;
+
+  @media screen and (max-width: 800px) {
+    padding: 0 40px;
+  }
+
+  @media screen and (max-width: 370px) {
+    width: 90%;
+    margin: 0 auto;
+    padding: 0;
+  }
 
   .logo-container {
     height: 100%;
@@ -17,6 +28,14 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
+
+    @media screen and (max-width: 665px) {
+      width: 70%;
+      justify-content: space-between;
+    }
+    @media screen and (max-width: 370px) {
+      width: 76%;
+    }
 
     .option {
       padding: 10px 15px;

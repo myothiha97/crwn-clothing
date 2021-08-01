@@ -8,6 +8,8 @@ import { selectCollection } from "../../redux/shop/shop.selector";
 import { connect } from "react-redux";
 
 const CollectionPage = ({ match, collection }) => {
+  if (!collection) return "empty";
+
   const { title, items } = collection;
   return (
     <div className="collection-page">

@@ -2,7 +2,7 @@ body {
   font-family: "Open Sans Condensed";
   padding: 20px 80px;
 
-  @media screen and (max-width: 370px) {
+  @media screen and (max-width: 800px) {
     padding: 0;
   }
 }
@@ -10,4 +10,8 @@ body {
 a {
   text-decoration: none;
   color: black;
+}
+
+::-webkit-scrollbar {
+  display: none;
 }
