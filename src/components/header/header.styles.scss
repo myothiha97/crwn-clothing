@@ -30,8 +30,12 @@
     justify-content: flex-end;
 
     @media screen and (max-width: 665px) {
-      width: 70%;
+      width: 40%;
       justify-content: space-between;
+    }
+
+    @media screen and (max-width: 519px) {
+      width: 60%;
     }
     @media screen and (max-width: 370px) {
       width: 76%;

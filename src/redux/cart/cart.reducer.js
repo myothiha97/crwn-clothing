@@ -14,6 +14,11 @@ const cartReducer = (state = INITIAL_STATE, action) => {
         hidden: !state.hidden,
       };
 
+    case cartActionTypes.HIDE_CART:
+      return {
+        ...state,
+        hidden: true,
+      };
     case cartActionTypes.ADD_ITEM:
       return {
         ...state,
