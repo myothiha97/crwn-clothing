@@ -36,7 +36,6 @@ class SignIn extends Component {
             name="email"
             type="email"
             value={email}
-            required
             label="email"
             handleChange={this.handleChange.bind(this)}
           />
@@ -45,13 +44,13 @@ class SignIn extends Component {
             name="password"
             type="password"
             value={password}
-            required
             label="password"
             handleChange={this.handleChange.bind(this)}
           />
           <div className="buttons">
             <CustomButton type="submit">Sign in</CustomButton>
             <CustomButton
+              type="button"
               onClick={() => singInWithGoogle()}
               isGoogleSignIn={true}
             >
