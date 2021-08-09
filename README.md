@@ -27,4 +27,6 @@ npm install or yarn
 npm start or yarn start
 ```
 
+**To Sign in with Google please use `VPN`**
+
 > Note: If the images did not load correctly , try using `VPN`
